@@ -21,10 +21,10 @@ namespace TestEasy.Data
             var Registers = new Register[]
                 {
             new Register{Name= "adriano",Email= "adriano@hotmail.com",Phone= "11-111111-1111",Linkedin="www.Linkedin.com.br",LinkCRUD="www.LinkCRUD.com.br",CreateDateTime=DateTime.Now,City="SP",State="sao paulo",Portfolio="www.Portfolio.com.br",salaryPrefer="2000"},
-            new Register{Name= "testenome",Email= "teste@hotmail.com",Phone= "11-111111-1111",Linkedin="www.Linkedin.com.br",LinkCRUD="www.LinkCRUD.com.br",CreateDateTime=DateTime.Now,City="SP",State="itapevi",Portfolio="www.Portfolio.com.br",salaryPrefer="2000"},
-            new Register{Name= "outronome",Email= "outronome@hotmail.com",Phone= "11-111111-1111",Linkedin="www.Linkedin.com.br",LinkCRUD="www.LinkCRUD.com.br",CreateDateTime=DateTime.Now,City="SP",State="itapevi",Portfolio="www.Portfolio.com.br",salaryPrefer="2000"},
-            new Register{Name= "pricila",Email= "pricila@hotmail.com",Phone= "11-111111-1111",Linkedin="www.Linkedin.com.br",LinkCRUD="www.LinkCRUD.com.br",CreateDateTime=DateTime.Now,City="SP",State="itapevi",Portfolio="www.Portfolio.com.br",salaryPrefer="2000"},
-            new Register{Name= "katia",Email= "katia@hotmail.com",Phone= "11-111111-1111",Linkedin="www.Linkedin.com.br",LinkCRUD="www.LinkCRUD.com.br",CreateDateTime=DateTime.Now,City="SP",State="itapevi",Portfolio="www.Portfolio.com.br",salaryPrefer="2000"},
+            new Register{Name= "testenome",Email= "teste@hotmail.com",Phone= "11-111111-1111",Linkedin="www.Linkedin.com.br",LinkCRUD="www.LinkCRUD.com.br",CreateDateTime=DateTime.Now,City="SP",State="saopaulo",Portfolio="www.Portfolio.com.br",salaryPrefer="2000"},
+            new Register{Name= "outronome",Email= "outronome@hotmail.com",Phone= "11-111111-1111",Linkedin="www.Linkedin.com.br",LinkCRUD="www.LinkCRUD.com.br",CreateDateTime=DateTime.Now,City="SP",State="saopaulo",Portfolio="www.Portfolio.com.br",salaryPrefer="2000"},
+            new Register{Name= "pricila",Email= "pricila@hotmail.com",Phone= "11-111111-1111",Linkedin="www.Linkedin.com.br",LinkCRUD="www.LinkCRUD.com.br",CreateDateTime=DateTime.Now,City="SP",State="saopaulo",Portfolio="www.Portfolio.com.br",salaryPrefer="2000"},
+            new Register{Name= "katia",Email= "katia@hotmail.com",Phone= "11-111111-1111",Linkedin="www.Linkedin.com.br",LinkCRUD="www.LinkCRUD.com.br",CreateDateTime=DateTime.Now,City="SP",State="saopaulo",Portfolio="www.Portfolio.com.br",salaryPrefer="2000"},
                 };
 
             foreach (Register r in Registers)
