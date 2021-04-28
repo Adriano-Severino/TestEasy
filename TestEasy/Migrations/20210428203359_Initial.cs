@@ -35,11 +35,11 @@ namespace TestEasy.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    RegisterId = table.Column<int>(type: "int", nullable: false),
-                    willingnessWorkWeek = table.Column<string>(type: "varchar(40)", maxLength: 40, nullable: true),
-                    TimeWork = table.Column<string>(type: "varchar(40)", maxLength: 40, nullable: true),
-                    Knowledge = table.Column<string>(type: "varchar(40)", maxLength: 40, nullable: false),
-                    OtherLanguageFramework = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    willingnessWorkWeek = table.Column<string>(type: "varchar(1024)", maxLength: 1024, nullable: true),
+                    TimeWork = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
+                    Knowledge = table.Column<string>(type: "varchar(1024)", maxLength: 1024, nullable: false),
+                    OtherLanguageFramework = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RegisterId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

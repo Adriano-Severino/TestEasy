@@ -79,8 +79,8 @@ namespace TestEasy.Migrations
 
                     b.Property<string>("Knowledge")
                         .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("varchar(40)");
+                        .HasMaxLength(1024)
+                        .HasColumnType("varchar(1024)");
 
                     b.Property<string>("OtherLanguageFramework")
                         .HasColumnType("nvarchar(max)");
@@ -89,12 +89,12 @@ namespace TestEasy.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TimeWork")
-                        .HasMaxLength(40)
-                        .HasColumnType("varchar(40)");
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("willingnessWorkWeek")
-                        .HasMaxLength(40)
-                        .HasColumnType("varchar(40)");
+                        .HasMaxLength(1024)
+                        .HasColumnType("varchar(1024)");
 
                     b.HasKey("Id");
 

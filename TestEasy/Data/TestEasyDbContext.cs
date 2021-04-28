@@ -23,6 +23,5 @@ namespace TestEasy.Data
             modelBuilder.ApplyConfiguration(new RegisterMap());
             modelBuilder.ApplyConfiguration(new RegisterSkillMap());
         }
-
     }
 }
