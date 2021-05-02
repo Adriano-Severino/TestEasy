@@ -28,7 +28,7 @@ namespace TestEasy
 
             // In production, the Angular files will be served from this directory
             services.AddDbContext<TestEasyDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<TestEasyDbContext, TestEasyDbContext>();
             services.AddTransient<RegisterRepository, RegisterRepository>();

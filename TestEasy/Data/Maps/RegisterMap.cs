@@ -21,6 +21,10 @@ namespace TestEasy.Data.Maps
             builder.Property(x => x.Phone).IsRequired().HasMaxLength(30).HasColumnType("varchar(30)");
             builder.Property(x => x.City).IsRequired().HasMaxLength(20).HasColumnType("varchar(20)");
             builder.Property(x => x.State).IsRequired().HasMaxLength(20).HasColumnType("varchar(20)");
+            builder.Property(x => x.salaryPrefer).HasMaxLength(20).HasColumnType("varchar(20)");
+            builder.Property(x => x.Portfolio).HasMaxLength(1024).HasColumnType("varchar(1024)");
+            builder.Property(x => x.LinkCRUD).HasMaxLength(1024).HasColumnType("varchar(1024)");
+            builder.Property(x => x.Linkedin).HasMaxLength(1024).HasColumnType("varchar(1024)");
         }
     }
 } 

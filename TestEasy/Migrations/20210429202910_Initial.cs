@@ -11,18 +11,18 @@ namespace TestEasy.Migrations
                 name: "Registers",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "varchar(120)", maxLength: 120, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
                     Phone = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
-                    Linkedin = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LinkCRUD = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Linkedin = table.Column<string>(type: "varchar(1024)", maxLength: 1024, nullable: true),
+                    LinkCRUD = table.Column<string>(type: "varchar(1024)", maxLength: 1024, nullable: true),
                     City = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
                     State = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false),
-                    Portfolio = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    salaryPrefer = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Portfolio = table.Column<string>(type: "varchar(1024)", maxLength: 1024, nullable: true),
+                    salaryPrefer = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true),
+                    CreateDateTime = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -33,13 +33,13 @@ namespace TestEasy.Migrations
                 name: "Skills",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     willingnessWorkWeek = table.Column<string>(type: "varchar(1024)", maxLength: 1024, nullable: true),
                     TimeWork = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true),
                     Knowledge = table.Column<string>(type: "varchar(1024)", maxLength: 1024, nullable: false),
-                    OtherLanguageFramework = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RegisterId = table.Column<int>(type: "int", nullable: false)
+                    OtherLanguageFramework = table.Column<string>(type: "TEXT", nullable: true),
+                    RegisterId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {

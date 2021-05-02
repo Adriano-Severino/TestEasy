@@ -1,0 +1,107 @@
+<p *ngIf="!Register"><em>Loading...</em></p>
+
+<h1>Todos os Registros</h1>
+<p *ngIf="!Register"><em>Loading...</em></p>
+
+<div>
+  <input type="text" [(ngModel)]="Text">
+  <p>{{Text}}</p>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-6" *ngIf="registerselected">
+    <h3> Registro selecionado: {{registerselected.Name}} </h3>
+    <div class="row">
+      <div class="mr-auto">
+
+      </div>
+      <div class="mt-1">
+        <button class="btn btn-default" (click)= "comeback()"> Lista de registros
+
+        </button>
+
+      </div>
+    </div>
+
+
+
+    <form [formGroup]="registerForm" (submit)="registerSubmit()">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nome:</label>
+        <input type="text" class="form-control" formControlName="Name" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" formControlName="Email" placeholder="Digite seu Email" aria-describedby="emailHelp">
+        <div class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <hr>
+      <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid">Enviar/Submit</button>
+    </form>
+
+  </div>
+  <div [ngClass]="{'col-sm-6': registerselected, 'col-sm-12': !registerselected }">
+    <table class="table table-hover table-dark table-striped">
+      <thead>
+        <tr>
+
+          <th scope="col">Nome:</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefone:</th>
+          <th scope="col">Linkedin:</th>
+          <th scope="col">LinkCRUD</th>
+          <th scope="col">Cidade:</th>
+          <th scope="col">Estado:</th>
+          <th scope="col">Portifolio</th>
+          <th scope="col">Preferenca de Salario:</th>
+          <th scope="col">Knowledge:</th>
+          <th scope="col">OtherLanguageFramework</th>
+          <th scope="col">RegisterId:</th>
+          <th scope="col">TimeWork:</th>
+          <th scope="col">willingnessWorkWeek</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let register of Register" >
+
+
+          <td>{{register.Name}}</td>
+          <td>{{register.Email}}</td>
+          <td>{{register.Phone}}</td>
+          <td>{{register.Linkedin}}</td>
+          <td>{{register.LinkCRUD}}</td>
+          <td>{{register.City}}</td>
+          <td>{{register.State}}</td>
+          <td>{{register.Portfolio}}</td>
+          <td>{{register.salaryPrefer}}</td>
+          <td>{{register.Knowledge}}</td>
+          <td>{{register.OtherLanguageFramework}}</td>
+          <td>{{register.RegisterId}}</td>
+          <td>{{register.TimeWork}}</td>
+          <td>{{register.willingnessWorkWeek}}</td>
+          <td>
+            <div class="btn-group">
+              <button (click)="selectedRegister(register)" class="btn btn-sm btn-outline-primary">detalhes</button>
+              <button class="btn btn-sm btn-outline-primary">Editar</button>
+              <button class="btn btn-sm btn-outline-primary">Excluir</button>
+
+
+          </div>
+        </td>
+        </tr>
+
+
+      </tbody>
+
+    </table>
+  </div>
+
+</div>
