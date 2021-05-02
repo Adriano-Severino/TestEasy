@@ -10,7 +10,7 @@ using TestEasy.Data;
 namespace TestEasy.Migrations
 {
     [DbContext(typeof(TestEasyDbContext))]
-    [Migration("20210502003615_Initial")]
+    [Migration("20210502171352_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

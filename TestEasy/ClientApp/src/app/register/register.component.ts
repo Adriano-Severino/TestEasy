@@ -1,8 +1,9 @@
 import { Register } from './../Models/register';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, TemplateRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { identifierModuleUrl } from '@angular/compiler';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  public ModalRef: BsModalRef;
   public registerForm: FormGroup;
   public registerselected: Register;
   public Text: string;
@@ -23,8 +26,13 @@ export class RegisterComponent implements OnInit {
 {id:4,Name: 'katia',Email: 'katia@hotmail.com',Phone: '11-111111-1111',Linkedin:'www.Linkedin.com.br',LinkCRUD:'www.LinkCRUD.com.br',City:'SP',State:'saopaulo',Portfolio:'www.Portfolio.com.br',salaryPrefer:'2000',RegisterId:5,willingnessWorkWeek:'Acima de 8 horas por dia)',TimeWork:'08:00 ás 12:00',Knowledge:'C++,3',OtherLanguageFramework:'SWIFT,5,angular,3,css,1,go,5'},
 ];
 
+openModal(template: TemplateRef<any>) {
+  this.ModalRef = this.modalService.show(template);
+}
 
-constructor(private fb: FormBuilder){
+
+constructor(private fb: FormBuilder,
+  private modalService: BsModalService) {
   this.createForm();
 }
 

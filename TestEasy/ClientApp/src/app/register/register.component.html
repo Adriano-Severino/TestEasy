@@ -90,7 +90,7 @@
           <td>
             <div class="btn-group">
               <button (click)="selectedRegister(register)" class="btn btn-sm btn-outline-primary">detalhes</button>
-              <button class="btn btn-sm btn-outline-primary">Editar</button>
+              <button (click)="openModal(template)" class="btn btn-sm btn-outline-primary">Editar</button>
               <button class="btn btn-sm btn-outline-primary">Excluir</button>
 
 
@@ -105,3 +105,16 @@
   </div>
 
 </div>
+
+<ng-template #template>
+  <div class="modal-body">
+   <app-register></app-register>>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn pull-right" aria-label="Close" (click)="ModalRef.hide()">
+FECHAR
+    </button>
+  </div>
+
+</ng-template>
+
