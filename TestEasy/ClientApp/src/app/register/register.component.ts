@@ -18,8 +18,6 @@ export class RegisterComponent implements OnInit {
   public Text: string;
 
 
- public  Register = [
-{id:0,Name: 'adriano',Email: 'adriano@hotmail.com',Phone: '11-111111-1111',Linkedin:'www.Linkedin.com.br',LinkCRUD:'www.LinkCRUD.com.br',City:'SP',State:'sao paulo',Portfolio:'www.Portfolio.com.br',salaryPrefer:'2000',RegisterId:1,willingnessWorkWeek:'Acima de 8 horas por dia)',TimeWork:'08:00 ás 12:00',Knowledge:'Android,3',OtherLanguageFramework:'xamarin,3'},
  public  registers: Register[];
  public skills: Skill;
 // {id:0,Name: 'adriano',Email: 'adriano@hotmail.com',Phone: '11-111111-1111',Linkedin:'www.Linkedin.com.br',LinkCRUD:'www.LinkCRUD.com.br',City:'SP',State:'sao paulo',Portfolio:'www.Portfolio.com.br',salaryPrefer:'2000',RegisterId:1,willingnessWorkWeek:'Acima de 8 horas por dia)',TimeWork:'08:00 ás 12:00',Knowledge:'Android,3',OtherLanguageFramework:'xamarin,3'},
