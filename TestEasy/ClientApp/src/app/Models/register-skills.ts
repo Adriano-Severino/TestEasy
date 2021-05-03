@@ -1,9 +1,8 @@
-export class RegisterSkills {
-  Id: number;
+export class Skill {
+  id: number;
   willingnessWorkWeek: string;
-  TimeWork: string;
-  Knowledge: string;
-  OtherLanguageFramework: string;
-  RegisterId: string;
-  Register: string;
+  timeWork: string;
+  knowledge: string;
+  otherLanguageFramework: string;
+  registerId: number;
 }

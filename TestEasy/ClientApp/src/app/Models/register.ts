@@ -1,14 +1,19 @@
+import { Skill } from "./register-skills";
+
 export class Register {
-  Id: number;
-  Name: string;
-  Email: string;
-  Phone: string;
-  Linkedin: string;
-  LinkCRUD: string;
-  City: string;
-  State: string;
-  Portfolio: string;
+  id: number;
+  name: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+  linkCRUD: string;
+  city: string;
+  state: string;
+  portfolio: string;
   salaryPrefer: string;
-  CreateDateTime: string;
- // ICollection<RegisterSkill>  Skills;
+  createDateTime: Date;
+  skills: Skill[];
 }
+
+
+

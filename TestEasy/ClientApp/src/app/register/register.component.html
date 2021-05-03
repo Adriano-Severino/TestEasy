@@ -1,7 +1,7 @@
-<p *ngIf="!Register"><em>Loading...</em></p>
+<p *ngIf="!registers"><em>Loading...</em></p>
 
 <h1>Todos os Registros</h1>
-<p *ngIf="!Register"><em>Loading...</em></p>
+<p *ngIf="!registers"><em>Loading...</em></p>
 
 <div>
   <input type="text" [(ngModel)]="Text">
@@ -11,7 +11,7 @@
 
 <div class="row">
   <div class="col-sm-6" *ngIf="registerselected">
-    <h3> Registro selecionado: {{registerselected.Name}} </h3>
+    <h3> Registro selecionado: {{registerselected.name}} </h3>
     <div class="row">
       <div class="mr-auto">
 
@@ -29,12 +29,12 @@
     <form [formGroup]="registerForm" (submit)="registerSubmit()">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Nome:</label>
-        <input type="text" class="form-control" formControlName="Name" placeholder="Digite seu nome">
+        <input type="text" class="form-control" formControlName="name" placeholder="Digite seu nome">
         <div  class="form-text">We'll never share your email with anyone else.</div>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" formControlName="Email" placeholder="Digite seu Email" aria-describedby="emailHelp">
+        <input type="email" class="form-control" formControlName="email" placeholder="Digite seu Email" aria-describedby="emailHelp">
         <div class="form-text">We'll never share your email with anyone else.</div>
       </div>
 
@@ -60,37 +60,40 @@
           <th scope="col">Cidade:</th>
           <th scope="col">Estado:</th>
           <th scope="col">Portifolio</th>
-          <th scope="col">Preferenca de Salario:</th>
-          <th scope="col">Knowledge:</th>
-          <th scope="col">OtherLanguageFramework</th>
-          <th scope="col">RegisterId:</th>
-          <th scope="col">TimeWork:</th>
-          <th scope="col">willingnessWorkWeek</th>
+          <th scope="col">Prefe:Salario:</th>
+          <th scope="col">Registrado em:</th>
+          <th scope="col">willingnessWorkWeek:</th>
+          <th scope="col">TimeWork</th>
+          <th scope="col">knowledge:</th>
+          <th scope="col">otherLanguageFramework:</th>
+          <th scope="col">registerId</th>
         </tr>
       </thead>
       <tbody>
 
-        <tr *ngFor="let register of Register" >
+        <tr *ngFor="let register of registers" >
 
 
-          <td>{{register.Name}}</td>
-          <td>{{register.Email}}</td>
-          <td>{{register.Phone}}</td>
-          <td>{{register.Linkedin}}</td>
-          <td>{{register.LinkCRUD}}</td>
-          <td>{{register.City}}</td>
-          <td>{{register.State}}</td>
-          <td>{{register.Portfolio}}</td>
+          <td>{{register.name}}</td>
+          <td>{{register.email}}</td>
+          <td>{{register.phone}}</td>
+          <td>{{register.linkedin}}</td>
+          <td>{{register.linkCRUD}}</td>
+          <td>{{register.city}}</td>
+          <td>{{register.state}}</td>
+          <td>{{register.portfolio}}</td>
           <td>{{register.salaryPrefer}}</td>
-          <td>{{register.Knowledge}}</td>
-          <td>{{register.OtherLanguageFramework}}</td>
-          <td>{{register.RegisterId}}</td>
-          <td>{{register.TimeWork}}</td>
+          <td>{{register.createDateTime}}</td>
           <td>{{register.willingnessWorkWeek}}</td>
+          <td>{{register.timeWork}}</td>
+          <td>{{register.knowledge}}</td>
+          <td>{{register.otherLanguageFramework}}</td>
+          <td>{{register.registerId}}</td>
+
           <td>
             <div class="btn-group">
-              <button (click)="selectedRegister(register)" class="btn btn-sm btn-outline-primary">detalhes</button>
-              <button (click)="openModal(template)" class="btn btn-sm btn-outline-primary">Editar</button>
+              <button  (click)="selectedRegister(register)" class="btn btn-sm btn-outline-primary">Detalhes</button>
+              <button (click)="selectedRegister(register)" class="btn btn-sm btn-outline-primary">Editar</button>
               <button class="btn btn-sm btn-outline-primary">Excluir</button>
 
 
@@ -105,16 +108,3 @@
   </div>
 
 </div>
-
-<ng-template #template>
-  <div class="modal-body">
-   <app-register></app-register>>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn pull-right" aria-label="Close" (click)="ModalRef.hide()">
-FECHAR
-    </button>
-  </div>
-
-</ng-template>
-
