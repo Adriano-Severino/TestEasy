@@ -1,5 +1,3 @@
-<p *ngIf="!registers"><em>Loading...</em></p>
-
 <h1>Todos os Registros</h1>
 <p *ngIf="!registers"><em>Loading...</em></p>
 
@@ -32,12 +30,67 @@
         <input type="text" class="form-control" formControlName="name" placeholder="Digite seu nome">
         <div  class="form-text">We'll never share your email with anyone else.</div>
       </div>
+
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email address</label>
         <input type="email" class="form-control" formControlName="email" placeholder="Digite seu Email" aria-describedby="emailHelp">
         <div class="form-text">We'll never share your email with anyone else.</div>
       </div>
-
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">phone:</label>
+        <input type="text" class="form-control" formControlName="phone" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">linkedin:</label>
+        <input type="text" class="form-control" formControlName="linkedin" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">linkCRUD:</label>
+        <input type="text" class="form-control" formControlName="linkCRUD" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">city:</label>
+        <input type="text" class="form-control" formControlName="city" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">state:</label>
+        <input type="text" class="form-control" formControlName="state" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">portfolio:</label>
+        <input type="text" class="form-control" formControlName="portfolio" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">salaryPrefer:</label>
+        <input type="text" class="form-control" formControlName="salaryPrefer" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">willingnessWorkWeek:</label>
+        <input type="text" class="form-control" formControlName="willingnessWorkWeek" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">timeWork:</label>
+        <input type="text" class="form-control" formControlName="timeWork" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">knowledge:</label>
+        <input type="text" class="form-control" formControlName="knowledge" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">otherLanguageFramework:</label>
+        <input type="text" class="form-control" formControlName="otherLanguageFramework" placeholder="Digite seu nome">
+        <div  class="form-text">We'll never share your email with anyone else.</div>
+      </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
@@ -48,6 +101,10 @@
 
   </div>
   <div [ngClass]="{'col-sm-6': registerselected, 'col-sm-12': !registerselected }">
+    <div class="mt-1">
+      <button class="btn btn-default" (click)= "newRegister()"> Cadastrar
+
+      </button>
     <table class="table table-hover table-dark table-striped">
       <thead>
         <tr>
@@ -88,13 +145,12 @@
           <td>{{register.timeWork}}</td>
           <td>{{register.knowledge}}</td>
           <td>{{register.otherLanguageFramework}}</td>
-          <td>{{register.registerId}}</td>
 
           <td>
             <div class="btn-group">
-              <button  (click)="selectedRegister(register)" class="btn btn-sm btn-outline-primary">Detalhes</button>
+              <button (click)="selectedRegister(register)" class="btn btn-sm btn-outline-primary">Detalhes</button>
               <button (click)="selectedRegister(register)" class="btn btn-sm btn-outline-primary">Editar</button>
-              <button class="btn btn-sm btn-outline-primary">Excluir</button>
+              <button (click)="deleteRegister(register.id)" class="btn btn-sm btn-outline-primary">Excluir</button>
 
 
           </div>

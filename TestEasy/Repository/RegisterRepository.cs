@@ -21,7 +21,6 @@ namespace TestEasy.Repository
         internal IEnumerable<ListRegisterViewModel> GetRegister()
         {
             return _context.Registers
-                .Include(x => x.Skills)
                 .Select(x => new ListRegisterViewModel
                 {
                     Id = x.Id,
@@ -34,8 +33,11 @@ namespace TestEasy.Repository
                     Phone = x.Phone,
                     Portfolio = x.Portfolio,
                     salaryPrefer = x.salaryPrefer,
+                    willingnessWorkWeek = x.willingnessWorkWeek,
+                    TimeWork = x.TimeWork,
+                    Knowledge = x.Knowledge,
+                    OtherLanguageFramework = x.OtherLanguageFramework,
                     CreateDateTime = x.CreateDateTime,
-                    Skills = x.Skills,
 
                 })
                 .AsNoTracking()
@@ -46,23 +48,13 @@ namespace TestEasy.Repository
         internal Register GetIdRegister(int id)
         {
             return _context.Registers.AsNoTracking()
-                .Include(x => x.Skills)
                 .Where(x => x.Id == id).FirstOrDefault();
         }
-        internal RegisterSkill GetIdRegisterSkill(int id)
-        {
-            return _context.RegisterSkills.AsNoTracking()
-                .Include(x => x.Register)
-                .Where(x => x.Id == id).FirstOrDefault();
-        }
-
-
         internal IEnumerable<ListRegisterViewModel> GetRegistersSkills(int id)
         {
           
             return _context.Registers
                 .Where(x => x.Id == id)
-                .Include(x => x.Skills)
                 .Select(x => new ListRegisterViewModel 
                 {
 
@@ -76,9 +68,12 @@ namespace TestEasy.Repository
                     Phone = x.Phone,
                     Portfolio = x.Portfolio,
                     salaryPrefer = x.salaryPrefer,
+                    willingnessWorkWeek = x.willingnessWorkWeek,
+                    TimeWork = x.TimeWork,
+                    Knowledge = x.Knowledge,
+                    OtherLanguageFramework = x.OtherLanguageFramework,
                     CreateDateTime = x.CreateDateTime,
-                    Skills = x.Skills,
-                  
+
 
                 })
                 .AsNoTracking()
@@ -91,13 +86,6 @@ namespace TestEasy.Repository
             _context.Registers.Add(register);
             _context.SaveChanges();
         }
-
-        internal void SaveSkill(RegisterSkill skills)
-        {
-            _context.RegisterSkills.Add(skills);
-            _context.SaveChanges();
-        }
-
         internal void Update(Register register)
         {
             _context.Entry<Register>(register).State = EntityState.Modified;

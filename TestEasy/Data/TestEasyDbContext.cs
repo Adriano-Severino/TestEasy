@@ -16,12 +16,10 @@ namespace TestEasy.Data
         {
         }
         public DbSet<Register> Registers { get; set; }
-        public DbSet<RegisterSkill> RegisterSkills { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new RegisterMap());
-            modelBuilder.ApplyConfiguration(new RegisterSkillMap());
         }
     }
 }

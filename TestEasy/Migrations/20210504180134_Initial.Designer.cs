@@ -10,7 +10,7 @@ using TestEasy.Data;
 namespace TestEasy.Migrations
 {
     [DbContext(typeof(TestEasyDbContext))]
-    [Migration("20210503183051_Initial")]
+    [Migration("20210504180134_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,11 @@ namespace TestEasy.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Knowledge")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("varchar(1024)");
+
                     b.Property<string>("LinkCRUD")
                         .HasMaxLength(1024)
                         .HasColumnType("varchar(1024)");
@@ -52,6 +57,9 @@ namespace TestEasy.Migrations
                         .IsRequired()
                         .HasMaxLength(120)
                         .HasColumnType("varchar(120)");
+
+                    b.Property<string>("OtherLanguageFramework")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
@@ -67,36 +75,13 @@ namespace TestEasy.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("salaryPrefer")
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Registers");
-                });
-
-            modelBuilder.Entity("TestEasy.Domain.Models.RegisterSkill", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Knowledge")
-                        .IsRequired()
-                        .HasMaxLength(1024)
-                        .HasColumnType("varchar(1024)");
-
-                    b.Property<string>("OtherLanguageFramework")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RegisterId")
-                        .HasColumnType("int");
-
                     b.Property<string>("TimeWork")
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
+
+                    b.Property<string>("salaryPrefer")
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("willingnessWorkWeek")
                         .HasMaxLength(1024)
@@ -104,25 +89,7 @@ namespace TestEasy.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RegisterId");
-
-                    b.ToTable("Skills");
-                });
-
-            modelBuilder.Entity("TestEasy.Domain.Models.RegisterSkill", b =>
-                {
-                    b.HasOne("TestEasy.Domain.Models.Register", "Register")
-                        .WithMany("Skills")
-                        .HasForeignKey("RegisterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Register");
-                });
-
-            modelBuilder.Entity("TestEasy.Domain.Models.Register", b =>
-                {
-                    b.Navigation("Skills");
+                    b.ToTable("Registers");
                 });
 #pragma warning restore 612, 618
         }

@@ -25,6 +25,9 @@ namespace TestEasy.Data.Maps
             builder.Property(x => x.Portfolio).HasMaxLength(1024).HasColumnType("varchar(1024)");
             builder.Property(x => x.LinkCRUD).HasMaxLength(1024).HasColumnType("varchar(1024)");
             builder.Property(x => x.Linkedin).HasMaxLength(1024).HasColumnType("varchar(1024)");
+            builder.Property(x => x.Knowledge).IsRequired().HasMaxLength(1024).HasColumnType("varchar(1024)");
+            builder.Property(x => x.TimeWork).HasMaxLength(50).HasColumnType("varchar(50)");
+            builder.Property(x => x.willingnessWorkWeek).HasMaxLength(1024).HasColumnType("varchar(1024)");
         }
     }
 } 

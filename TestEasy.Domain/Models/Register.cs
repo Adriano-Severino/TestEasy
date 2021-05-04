@@ -19,8 +19,11 @@ namespace TestEasy.Domain.Models
         public string State { get; set; }
         public string Portfolio { get; set; }
         public string salaryPrefer { get; set; }
+        public string willingnessWorkWeek { get; set; }
+        public string TimeWork { get; set; }
+        public string Knowledge { get; set; }
+        public string OtherLanguageFramework { get; set; }
         public DateTime CreateDateTime { get; set; }
-        public ICollection<RegisterSkill>  Skills { get; set; }
         
 
     }

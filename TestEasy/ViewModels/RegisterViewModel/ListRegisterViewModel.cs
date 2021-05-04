@@ -10,25 +10,27 @@ namespace TestEasy.ViewModels.RegisterViewModel
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "*")]
+
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "*")]
+ 
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "*")]
         public string Phone { get; set; }
         public string Linkedin { get; set; }
         public string LinkCRUD { get; set; }
 
-        [Required(ErrorMessage = "*")]
+     
         public string City { get; set; }
 
-        [Required(ErrorMessage = "*")]
+        
         public string State { get; set; }
         public string Portfolio { get; set; }
         public string salaryPrefer { get; set; }
+        public string willingnessWorkWeek { get; set; }
+        public string TimeWork { get; set; }
+        public string Knowledge { get; set; }
+        public string OtherLanguageFramework { get; set; }
         public DateTime CreateDateTime { get; set; }
-        public object Skills { get; set; }
     }
 }

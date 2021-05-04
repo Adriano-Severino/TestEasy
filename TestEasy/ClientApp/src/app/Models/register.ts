@@ -1,6 +1,26 @@
-import { Skill } from "./register-skills";
-
 export class Register {
+/**
+ *
+ */
+constructor() {
+
+  this.id = 0
+  this.name = ''
+  this.email = ''
+  this.phone = ''
+  this.linkedin = ''
+  this.linkCRUD = ''
+  this.city = ''
+  this.state = ''
+  this.portfolio = ''
+  this.salaryPrefer = ''
+  this.willingnessWorkWeek = ''
+  this.timeWork = ''
+  this.knowledge =''
+  this.otherLanguageFramework = ''
+
+}
+
   id: number;
   name: string;
   email: string;
@@ -11,8 +31,11 @@ export class Register {
   state: string;
   portfolio: string;
   salaryPrefer: string;
+  willingnessWorkWeek: string;
+  timeWork: string;
+  knowledge: string;
+  otherLanguageFramework: string;
   createDateTime: Date;
-  skills: Skill[];
 }
 
 

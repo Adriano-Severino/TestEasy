@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore.Scaffolding.Metadata;
 using TestEasy.Domain.Models;
 using TestEasy.Repository;
 using TestEasy.ViewModels;
@@ -62,7 +64,6 @@ namespace TestEasy.Controllers
             try
             {
                 var register = new Register();
-                var skills = new RegisterSkill();
                 register.Name = model.Name;
                 register.Email = model.Email;
                 register.City = model.City;
@@ -73,17 +74,13 @@ namespace TestEasy.Controllers
                 register.Portfolio = model.Portfolio;
                 register.salaryPrefer = model.salaryPrefer;
                 register.CreateDateTime = DateTime.Now;
-                skills.RegisterId = register.Id;
-                skills.willingnessWorkWeek = model.willingnessWorkWeek;
-                skills.TimeWork = model.TimeWork;
-                skills.Knowledge = model.Knowledge;
-                skills.OtherLanguageFramework = model.OtherLanguageFramework;
+                register.willingnessWorkWeek = model.willingnessWorkWeek;
+                register.TimeWork = model.TimeWork;
+                register.Knowledge = model.Knowledge;
+                register.OtherLanguageFramework = model.OtherLanguageFramework;
 
                 //salva no banco de dados
                 _repository.Save(register);
-                var registerId = _repository.GetIdRegister(register.Id);
-                skills.RegisterId = registerId.Id;
-                _repository.SaveSkill(skills);
 
                 //sucesso ao salvar no banco de dados
                 return new ResultViewModel
@@ -113,10 +110,9 @@ namespace TestEasy.Controllers
         {
            
             //buscar no banco o registro para a atualização
-            var registerskills = _repository.GetIdRegister(model.Id);
-            var skills = new RegisterSkill();
+            var register = _repository.GetIdRegister(model.Id);
 
-            if (registerskills == null)
+            if (register == null)
             {
                 return new ResultViewModel()
                 {
@@ -138,31 +134,30 @@ namespace TestEasy.Controllers
 
             try
             {
-                registerskills.Name = model.Name;
-                registerskills.Email = model.Email;
-                registerskills.City = model.City;
-                registerskills.State = model.State;
-                registerskills.LinkCRUD = model.LinkCRUD;
-                registerskills.Linkedin = model.Linkedin;
-                registerskills.Phone = model.Phone;
-                registerskills.Portfolio = model.Portfolio;
-                registerskills.salaryPrefer = model.salaryPrefer;
-                skills.RegisterId = model.Id;
-                skills.Id = registerskills.Skills.FirstOrDefault().Id;
-                skills.willingnessWorkWeek = registerskills.Skills.FirstOrDefault().willingnessWorkWeek;
-                skills.TimeWork = registerskills.Skills.FirstOrDefault().TimeWork;
-                skills.Knowledge = registerskills.Skills.FirstOrDefault().Knowledge;
-                skills.OtherLanguageFramework = registerskills.Skills.FirstOrDefault().OtherLanguageFramework;
-
+                register.Name = model.Name;
+                register.Email = model.Email;
+                register.City = model.City;
+                register.State = model.State;
+                register.LinkCRUD = model.LinkCRUD;
+                register.Linkedin = model.Linkedin;
+                register.Phone = model.Phone;
+                register.Portfolio = model.Portfolio;
+                register.salaryPrefer = model.salaryPrefer;
+                register.willingnessWorkWeek = model.willingnessWorkWeek;
+                register.TimeWork = model.TimeWork;
+                register.Knowledge = model.Knowledge;
+                register.OtherLanguageFramework = model.OtherLanguageFramework;
+                
+                
                 //update the db
-                _repository.Update(registerskills);
-               // _repository.SaveSkill(skills);
+                _repository.Update(register);
+                // _repository.SaveSkill(skills);
 
                 return new ResultViewModel()
                 {
                     Success = true,
                     Message = "Registro Atulizado Com Sucesso!",
-                    Data = registerskills
+                    Data = register
                 };
             }
             catch (Exception)
@@ -181,22 +176,28 @@ namespace TestEasy.Controllers
         // Delete: register
         [Route("v1/registers/{id}")]
         [HttpDelete]
-        public ResultViewModel Deletar([FromBody] EditRegisterViewModel model, int id = -1)
+        public ResultViewModel Deletar(int id)
         {
             try
             {
-                var registers = new Register();
-                _ = id == -1 ? registers.Id = model.Id : registers.Id = id;
-                registers.Name = model.Name;
+                var register = _repository.GetIdRegister(id);
 
-                _repository.Delete(registers);
+                if (register == null)
+                {
+                    return new ResultViewModel()
+                    {
+                        Success = false,
+                        Message = "Não encontrado",
+                    };
+                }
+                
+                _repository.Delete(register);
 
                 return new ResultViewModel()
                 {
                     Success = true,
 
-                    Message = "registro Deletado com Sucesso!",
-                    Data = model.Notifications
+                    Message = "registro Deletado com Sucesso!"
                 };
             }
             catch (Exception)
@@ -204,8 +205,7 @@ namespace TestEasy.Controllers
                 return new ResultViewModel()
                 {
                     Success = false,
-                    Message = "Erro ao deletado o registro!",
-                    Data = model.Notifications
+                    Message = "Erro ao deletado o registro!"
                 };
             }
 
