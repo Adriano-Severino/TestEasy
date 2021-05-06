@@ -5,7 +5,7 @@
   <input type="text" [(ngModel)]="Text">
   <p>{{Text}}</p>
 </div>
-
+<div [ngClass]="{'col-sm-6': registerselected, 'col-sm-12': !registerselected }"></div>
 
 <div class="row">
   <div class="col-sm-6" *ngIf="registerselected">
@@ -100,9 +100,9 @@
     </form>
 
   </div>
-  <div [ngClass]="{'col-sm-6': registerselected, 'col-sm-12': !registerselected }">
+
     <div class="mt-1">
-      <button class="btn btn-default" (click)= "newRegister()"> Cadastrar
+      <button class="btn btn-default" (click)="newRegister()"> Cadastrar
 
       </button>
     <table class="table table-hover table-dark table-striped">
@@ -123,7 +123,6 @@
           <th scope="col">TimeWork</th>
           <th scope="col">knowledge:</th>
           <th scope="col">otherLanguageFramework:</th>
-          <th scope="col">registerId</th>
         </tr>
       </thead>
       <tbody>

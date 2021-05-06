@@ -108,7 +108,7 @@ namespace TestEasy.Controllers
         //[ValidateAntiForgeryToken]
         public ResultViewModel UpdateRegisters([Bind("Id,Name,Email,City,State,LinkCRUD,Linkedin,Phone,Portfolio,salaryPrefer,CreateDateTime")][FromBody] EditRegisterViewModel model)
         {
-           
+
             //buscar no banco o registro para a atualização
             var register = _repository.GetIdRegister(model.Id);
 
@@ -147,8 +147,8 @@ namespace TestEasy.Controllers
                 register.TimeWork = model.TimeWork;
                 register.Knowledge = model.Knowledge;
                 register.OtherLanguageFramework = model.OtherLanguageFramework;
-                
-                
+
+
                 //update the db
                 _repository.Update(register);
                 // _repository.SaveSkill(skills);
@@ -190,7 +190,7 @@ namespace TestEasy.Controllers
                         Message = "Não encontrado",
                     };
                 }
-                
+
                 _repository.Delete(register);
 
                 return new ResultViewModel()
