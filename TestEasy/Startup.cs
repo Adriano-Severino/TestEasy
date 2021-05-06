@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using TestEasy.Data;
 using TestEasy.Repository;
 
@@ -41,7 +42,7 @@ namespace TestEasy
             
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TakeTeste", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TestEasy", Version = "v1" });
             });
         }
 
@@ -51,6 +52,8 @@ namespace TestEasy
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TestEasy v1"));
             }
             else
             {
